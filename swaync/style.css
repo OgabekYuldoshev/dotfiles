@@ -1,0 +1,85 @@
+
+* {
+    outline:none;
+    font-size: 16px;
+    font-family: 'JetBrainsMono Nerd Font';
+}
+
+.control-center {
+    padding: 10px;
+}
+
+.widget-volume {
+    background-color: transparent;
+    padding: 8px;
+}
+
+.notification box{
+    padding: 4px;
+}
+
+
+.control-center .notification-row .notification-background .notification {
+    margin-top: 0.150rem;
+    margin-bottom: 0.150rem;
+    box-shadow: none;
+}
+
+.control-center .notification-row .notification-background .notification .notification-content .summary,
+.floating-notifications.background .notification-background .notification .notification-content .summary {
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 0.9909rem;
+    font-weight: 500;
+}
+
+.control-center .notification-row .notification-background .notification .notification-content .time,
+.floating-notifications.background .notification-background .notification .notification-content .time {
+    font-size: 0.8291rem;
+    font-weight: 500;
+    margin-right: 1rem;
+    padding-right: unset;
+}
+
+.control-center .notification-row .notification-background .notification .notification-content .body,
+.floating-notifications.background .notification-background .notification .notification-content .body {
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 0.8891rem;
+    font-weight: 400;
+    margin-top: 0.310rem;
+    padding-right: unset;
+    margin-right: unset;
+}
+
+.control-center .notification-row .close-button,
+.floating-notifications.background .close-button {
+    all:unset;
+    background-color: unset;
+    border-radius: 0%;
+    border: none;
+    box-shadow: none;
+    margin-right: 0;
+    margin-top: 4px;
+    margin-bottom: unset;
+    padding-bottom: unset;
+    min-height: 20px;
+    min-width: 20px;
+    text-shadow: none;
+    color:#EEEFE0;
+}
+
+.control-center .notification-row .close-button:hover,
+.floating-notifications.background .close-button:hover {
+    all:unset;
+    background-color: #819A91;
+    border-radius: 100%;
+    border: none;
+    box-shadow: none;
+    margin-right: 0px;
+    margin-top: 4px;
+    margin-bottom: unset;
+    padding-bottom: unset;
+    min-height: 20px;
+    min-width: 20px;
+    text-shadow: none;
+    color:#EEEFE0;
+}

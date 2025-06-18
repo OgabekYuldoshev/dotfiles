@@ -1,0 +1,129 @@
+{
+  "layer": "top",
+  "position": "top",
+  "reload_style_on_change": true,
+  "margin-left": 10,
+  "margin-right": 10,
+  "margin-top": 10,
+  "modules-left": [
+    "custom/notification",
+    "clock"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "group/expand",
+    "pulseaudio",
+    "battery",
+    "tray"
+  ],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": "",
+      "empty": ""
+    },
+    "persistent-workspaces": {
+      "*": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+    "custom/notification": {
+    "tooltip": false,
+    "format": "",
+    "on-click": "swaync-client -t -sw"
+  },
+  "clock": {
+    "format": "{:%H:%M %p}",
+    "interval": 60,
+    "format-alt": "{:%a, %d %b %Y}",
+    "tooltip": false
+  },
+   "custom/expand": {
+    "format": "",
+    "tooltip": false
+  },
+  "group/expand": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 300,
+      "transition-to-left": true,
+      "click-to-reveal": true
+    },
+    "modules": [
+      "custom/expand",
+      "cpu",
+      "memory",
+      "temperature",
+      "custom/endpoint"
+    ]
+  },
+    "cpu": {
+    "format": "󰻠 {usage}%",
+    "tooltip": true
+  },
+  "memory": {
+    "format": "  {percentage}%"
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": " {temperatureC}°C"
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon}  {volume}%",
+    "format-muted": "  {volume}%",
+    "on-click": "~/.config/waybar/scripts/toggle-mute.sh",
+    "format-icons": {
+      "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+      "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 1,
+    "on-click-right": "pavucontrol",
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ]
+  },
+  "battery": {
+    "interval": 10,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-icons": [
+      "󰁻",
+      "󰁼",
+      "󰁾",
+      "󰂀",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "tray": {
+    "icon-size": 16,
+    "rotate": 0,
+    "spacing": 3
+  }
+}
