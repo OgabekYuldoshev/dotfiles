@@ -31,13 +31,13 @@ window#waybar {
 #workspaces button {
   all: unset;
   padding: 0px 5px;
-  color: alpha(@tertiary, 0.4);
+  color: alpha(@primary, 0.4);
   transition: all 0.2s ease;
 }
 
 #workspaces button:hover {
-  color: @tertiary_fixed_dim;
-  text-shadow: 0px 0px 1.5px alpha(@tertiary_fixed_dim, 0.4);
+  color: @primary_fixed_dim;
+  text-shadow: 0px 0px 1.5px alpha(@primary_fixed_dim, 0.4);
   border-radius: 12px;
   transition: all 0.2s ease;
 }
@@ -49,19 +49,19 @@ window#waybar {
 }
 
 #workspaces button.active {
-  color: @tertiary;
-  text-shadow: 0px 0px 2px alpha(@tertiary_fixed_dim, 0.4);
+  color: @primary;
+  text-shadow: 0px 0px 2px alpha(@primary_fixed_dim, 0.4);
 }
 
 #workspaces button.empty:hover {
-  color: @tertiary_fixed_dim;
-  text-shadow: 0px 0px 1.5px alpha(@tertiary_fixed_dim, 0.5);
+  color: @primary_fixed_dim;
+  text-shadow: 0px 0px 1.5px alpha(@primary_fixed_dim, 0.5);
   transition: all 0.2s ease;
 }
 
 #workspaces button.empty.active {
-  color: @tertiary;
-  text-shadow: 0px 0px 2px alpha(@tertiary_fixed_dim, 0.5);
+  color: @primary;
+  text-shadow: 0px 0px 2px alpha(@primary_fixed_dim, 0.5);
 }
 
 tooltip {
@@ -75,7 +75,7 @@ tooltip {
 #memory:hover,
 #pulseaudio:hover,
 #clock:hover #custom-expand:hover {
-  color: @tertiary_fixed_dim;
+  color: @primary_fixed_dim;
 }
 
 #battery,

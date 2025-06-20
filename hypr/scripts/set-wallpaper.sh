@@ -18,13 +18,4 @@ SELECTED="${SELECTED_WALLPAPER/#\~/$HOME}"
 
 echo $SELECTED
 
-{
-  echo "preload = $SELECTED"
-  echo "wallpaper = ,$SELECTED"
-} > "$CONF_FILE"
-
-pkill hyprpaper
-
-hyprpaper & disown
-
 matugen image "$SELECTED"
