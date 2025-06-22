@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Work VPN",
+    "username": "example",
+    "password": "example123",
+    "server": "1.1.1.1",
+    "servercert": "pin-sha256:qweqwe+qweqwe="
+  }
+]
