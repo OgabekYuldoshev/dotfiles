@@ -74,8 +74,15 @@ tooltip {
 #temperature:hover,
 #memory:hover,
 #pulseaudio:hover,
-#clock:hover #custom-expand:hover {
+#clock:hover #custom-expand:hover,
+#custom-vpn:hover {
   color: @primary_fixed_dim;
+}
+
+#custom-vpn {
+  margin-right: 0.8rem;
+  color: #26a65b;
+  transition: all 0.2s ease;
 }
 
 #battery,
@@ -92,7 +99,7 @@ tooltip {
   transition: all 0.2s ease;
 }
 
-#custom-notification{
+#custom-notification {
   margin-right: 1rem;
   color: @inverse_surface;
   transition: all 0.2s ease;

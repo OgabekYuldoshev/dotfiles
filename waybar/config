@@ -14,6 +14,7 @@
   ],
   "modules-right": [
     "group/expand",
+    "custom/vpn",
     "pulseaudio",
     "battery",
     "tray"
@@ -35,7 +36,7 @@
       ]
     }
   },
-    "custom/notification": {
+  "custom/notification": {
     "tooltip": false,
     "format": "",
     "on-click": "swaync-client -t -sw"
@@ -46,7 +47,7 @@
     "format-alt": "{:%a, %d %b %Y}",
     "tooltip": false
   },
-   "custom/expand": {
+  "custom/expand": {
     "format": "",
     "tooltip": false
   },
@@ -65,9 +66,17 @@
       "custom/endpoint"
     ]
   },
-    "cpu": {
+  "cpu": {
     "format": "󰻠 {usage}%",
     "tooltip": true
+  },
+  "custom/vpn": {
+    "exec": "~/.config/waybar/scripts/vpn-status.sh",
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "VPN server: {}",
+    "interval": 5,
+    "on-click": "pkexec pkill openconnect"
   },
   "memory": {
     "format": "  {percentage}%"
