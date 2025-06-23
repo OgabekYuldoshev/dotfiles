@@ -76,7 +76,7 @@
     "tooltip": true,
     "tooltip-format": "VPN server: {}",
     "interval": 5,
-    "on-click": "pkexec pkill openconnect"
+    "on-click": "sudo -A pkill openconnect"
   },
   "memory": {
     "format": "  {percentage}%"
