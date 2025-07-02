@@ -1,0 +1,144 @@
+@import "./colors.css";
+
+* {
+  font-size: 14px;
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+window#waybar {
+  border-radius: 12px;
+  box-shadow: 0px 0px 2px alpha(@background, 0.4);
+  background: alpha(@background, 0.6);
+}
+
+.modules-right {
+  padding: 7px 10px;
+}
+
+.modules-center {
+  padding: 7px 10px;
+}
+
+.modules-left {
+  padding: 7px 10px;
+}
+
+#workspaces {
+  all: unset;
+  padding: 0px 4px 0px 0px;
+}
+
+#workspaces button {
+  all: unset;
+  padding: 0px 5px;
+  color: alpha(@primary, 0.4);
+  transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+  color: @primary_fixed_dim;
+  text-shadow: 0px 0px 1.5px alpha(@primary_fixed_dim, 0.4);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+#workspaces button.empty {
+  color: rgba(0, 0, 0, 0);
+  border: none;
+  text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.active {
+  color: @primary;
+  text-shadow: 0px 0px 2px alpha(@primary_fixed_dim, 0.4);
+}
+
+#workspaces button.empty:hover {
+  color: @primary_fixed_dim;
+  text-shadow: 0px 0px 1.5px alpha(@primary_fixed_dim, 0.5);
+  transition: all 0.2s ease;
+}
+
+#workspaces button.empty.active {
+  color: @primary;
+  text-shadow: 0px 0px 2px alpha(@primary_fixed_dim, 0.5);
+}
+
+tooltip {
+  background: alpha(@background, 0.6);
+  color: @inverse_surface;
+}
+
+#battery:hover,
+#cpu:hover,
+#temperature:hover,
+#memory:hover,
+#pulseaudio:hover,
+#clock:hover #custom-expand:hover,
+#custom-vpn:hover {
+  color: @primary_fixed_dim;
+}
+
+#custom-vpn {
+  margin-right: 0.8rem;
+  color: #26a65b;
+  transition: all 0.2s ease;
+}
+
+#battery,
+#cpu,
+#temperature,
+#memory {
+  margin-right: 0.8rem;
+  color: @inverse_surface;
+  transition: all 0.2s ease;
+}
+
+#clock {
+  color: @inverse_surface;
+  transition: all 0.2s ease;
+}
+
+#custom-notification {
+  margin-right: 1rem;
+  color: @inverse_surface;
+  transition: all 0.2s ease;
+}
+
+#pulseaudio {
+  color: @inverse_surface;
+  margin-right: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+#custom-expand {
+  color: @inverse_surface;
+  margin-right: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+#battery.charging {
+  color: #26a65b;
+}
+
+#battery.warning:not(.charging) {
+  color: #ffbe61;
+}
+
+#temperature.critical {
+  color: @error;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+  color: @error;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}

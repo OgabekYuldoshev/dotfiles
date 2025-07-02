@@ -2,30 +2,32 @@
   "layer": "top",
   "position": "top",
   "reload_style_on_change": true,
-  "margin-left": 5,
-  "margin-right": 5,
-  "margin-top": 5,
+  "height": 28,
   "modules-left": [
-    "custom/notification",
-    "clock"
+    "hyprland/workspaces",
+    "custom/sep",
+    "hyprland/window"
   ],
   "modules-center": [
-    "hyprland/workspaces"
+    "clock"
   ],
   "modules-right": [
-    "group/expand",
     "custom/vpn",
-    "pulseaudio",
+    "cpu",
+    "custom/sep",
+    "memory",
+    "custom/sep",
     "battery",
-    "tray"
+    "custom/sep",
+    "network",
+    "custom/sep",
+    "pulseaudio"
   ],
+  "hyprland/window": {
+    "max-length": 50,
+    "ellipsis": "…"
+  },
   "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "active": "",
-      "default": "",
-      "empty": ""
-    },
     "persistent-workspaces": {
       "*": [
         1,
@@ -36,103 +38,68 @@
       ]
     }
   },
-  "custom/notification": {
-    "tooltip": false,
-    "format": "",
-    "on-click": "swaync-client -t -sw"
-  },
-  "clock": {
-    "format": "{:%H:%M %p}",
-    "interval": 60,
-    "format-alt": "{:%a, %d %b %Y}",
-    "tooltip": false
-  },
-  "custom/expand": {
-    "format": "",
-    "tooltip": false
-  },
-  "group/expand": {
-    "orientation": "horizontal",
-    "drawer": {
-      "transition-duration": 300,
-      "transition-to-left": true,
-      "click-to-reveal": true
-    },
-    "modules": [
-      "custom/expand",
-      "cpu",
-      "memory",
-      "temperature",
-      "custom/endpoint"
-    ]
-  },
-  "cpu": {
-    "format": "󰻠 {usage}%",
-    "tooltip": true
-  },
   "custom/vpn": {
-    "exec": "~/.config/waybar/scripts/vpn-status.sh",
-    "format": "",
+    "format": "vpn |",
     "tooltip": true,
     "tooltip-format": "VPN server: {}",
+    "exec": "~/.config/waybar/scripts/vpn-status.sh",
     "interval": 5,
     "on-click": "pkexec pkill openconnect"
   },
+  "clock": {
+    "format": "{:%H:%M | %d %b %Y}",
+    "interval": 60
+  },
+  "custom/sep": {
+    "format": "|"
+  },
+  "cpu": {
+    "format": "cpu {usage}%",
+    "interval": 5,
+    "states": {
+      "critical": 90
+    }
+  },
   "memory": {
-    "format": "  {percentage}%"
-  },
-  "temperature": {
-    "critical-threshold": 80,
-    "format": " {temperatureC}°C"
-  },
-  "pulseaudio": {
-    "format": "{icon}  {volume}%",
-    "format-bluetooth": "{icon}  {volume}%",
-    "format-muted": "  {volume}%",
-    "on-click": "~/.config/waybar/scripts/toggle-mute.sh",
-    "format-icons": {
-      "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
-      "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "phone-muted": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "",
-        ""
-      ]
-    },
-    "scroll-step": 1,
-    "on-click-right": "pavucontrol",
-    "ignored-sinks": [
-      "Easy Effects Sink"
-    ]
+    "format": "mem {percentage}%",
+    "interval": 5,
+    "states": {
+      "critical": 80
+    }
   },
   "battery": {
-    "interval": 10,
+    "format": "bat {capacity}%",
+    "format-charging": "bat ~{capacity}%",
+    "format-plugged": "bat +{capacity}%",
+    "format-critical": "bat !{capacity}%",
+    "interval": 5,
     "states": {
-      "good": 95,
       "warning": 30,
-      "critical": 20
+      "critical": 10
     },
-    "format": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-icons": [
-      "󰁻",
-      "󰁼",
-      "󰁾",
-      "󰂀",
-      "󰂂",
-      "󰁹"
-    ]
+    "tooltip": false
   },
-  "tray": {
-    "icon-size": 16,
-    "rotate": 0,
-    "spacing": 3
+  "network": {
+    "format-wifi": "wifi {bandwidthDownBits}",
+    "format-ethernet": "enth {bandwidthDownBits}",
+    "format-disconnected": "no network",
+    "interval": 5,
+    "tooltip": true,
+    "tooltip-format": "{ifname}: {ipaddr}",
+    "tooltip-format-wifi": "{essid}: {ipaddr}",
+    "tooltip-format-disconnected": "disconnected",
+    "tooltip-format-disabled": "disabled",
+    "on-click-right": "kitty -e nmtui"
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "max-volume": 150,
+    "format": "vol {volume}%",
+    "format-muted": "vol -{volume}%",
+    "format-bluetooth": "vol {volume}%",
+    "nospacing": 1,
+    "on-click": "~/.config/waybar/scripts/toggle-mute.sh",
+    "on-click-right": "pavucontrol",
+    "tooltip": false
   }
 }
