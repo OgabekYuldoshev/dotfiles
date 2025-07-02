@@ -11,9 +11,9 @@ PASSWORD=$(jq -r --arg name "$CHOICE" '.[] | select(.name == $name) | .password'
 SERVER=$(jq -r --arg name "$CHOICE" '.[] | select(.name == $name) | .server' "$VPN_JSON")
 SERVERCERT=$(jq -r --arg name "$CHOICE" '.[] | select(.name == $name) | .servercert' "$VPN_JSON")
 
-sudo pkill openconnect
+sudo -A pkill openconnect
 
-echo "$PASSWORD" | sudo openconnect --user="$USERNAME" \
+echo "$PASSWORD" | sudo -A openconnect --user="$USERNAME" \
     --server="$SERVER" \
     --passwd-on-stdin \
     --non-inter \

@@ -44,7 +44,7 @@
     "tooltip-format": "VPN server: {}",
     "exec": "~/.config/waybar/scripts/vpn-status.sh",
     "interval": 5,
-    "on-click": "pkexec pkill openconnect"
+    "on-click": "sudo -A pkill openconnect"
   },
   "clock": {
     "format": "{:%H:%M | %d %b %Y}",
