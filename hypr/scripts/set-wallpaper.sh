@@ -7,8 +7,7 @@ menu() {
     find "${WALLPAPER_DIR}" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) | awk '{print "img:"$0}'
 }
 
-# === Rasm tanlash ===
-SELECTED=$( menu | wofi -c ~/.config/wofi/wallpaper/config -s ~/.config/wofi/wallpaper/style.css --dmenu --prompt "Rasm tanlang:" )
+SELECTED=$( menu | wofi -c ~/.config/wofi/wallpaper/config -s ~/.config/wofi/wallpaper/style.css --dmenu --prompt "Select wallpaper:" )
 
 [ -z "$SELECTED" ] && exit 0
 
