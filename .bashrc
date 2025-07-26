@@ -2,7 +2,6 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 sleep() {
@@ -24,7 +23,7 @@ alias gc='git commit -m'
 alias gp='git push'
 alias update='sudo pacman -Syu'
 alias pacup='sudo pacman -Rns $(pacman -Qdtq)'
-alias rm='rm -i' # Tasodifiy o‘chirishning oldini olish
+alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 # IP
