@@ -10,10 +10,6 @@ sleep() {
   systemctl suspend
 }
 
-if [[ "$TERM_PROGRAM" == "" ]]; then
-  eval "$(starship init bash)"
-fi
-
 alias c='clear'
 alias ..='cd ..'
 alias ...='cd ../..'
