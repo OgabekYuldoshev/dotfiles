@@ -1,99 +1,107 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 30,
-    "margin-top": 5,
-    "margin-left": 5,
-    "margin-right": 5,
-    "reload_style_on_change": true,
-    "modules-left": [
-        "hyprland/workspaces",
-        "custom/sep",
-        "hyprland/window"
-    ],
-    "modules-center": [],
-    "modules-right": [
-        "cpu",
-        "custom/sep",
-        "memory",
-        "custom/sep",
-        "battery",
-        "custom/sep",
-        "network",
-        "custom/sep",
-        "pulseaudio",
-        "custom/sep",
-        "clock"
-    ],
-    "hyprland/workspaces": {
-        "persistent-workspaces": {
-            "*": [
-                1,
-                2,
-                3,
-                4,
-                5
-            ]
-        }
-    },
-    "custom/sep": {
-        "format": "|"
-    },
-    "hyprland/window": {
-        "max-length": 50,
-        "ellipsis": "…"
-    },
-    "pulseaudio": {
-        "scroll-step": 5,
-        "max-volume": 150,
-        "format": "vol {volume}%",
-        "format-muted": "vol -{volume}%",
-        "format-bluetooth": "volbt {volume}%",
-        "nospacing": 1,
-        "on-click": "pulsemixer --toggle-mute",
-        "on-click-right": "foot -e pulsemixer",
-        "tooltip": false
-    },
-    "cpu": {
-        "format": "cpu {usage}%",
-        "interval": 5,
-        "states": {
-            "critical": 90
-        }
-    },
-    "memory": {
-        "format": "mem {percentage}%",
-        "interval": 5,
-        "states": {
-            "critical": 80
-        }
-    },
-    "battery": {
-        "format": "bat {capacity}%",
-        "format-charging": "bat ~{capacity}%",
-        "format-plugged": "bat +{capacity}%",
-        "format-critical": "bat !{capacity}%",
-        "interval": 5,
-        "states": {
-            "warning": 30,
-            "critical": 10
-        },
-        "tooltip": false
-    },
-    "network": {
-        "format-wifi": "wifi {bandwidthDownBits}",
-        "format-ethernet": "enth {bandwidthDownBits}",
-        "format-disconnected": "no network",
-        "interval": 5,
-        "tooltip": true,
-        "tooltip-format": "{ifname}: {ipaddr}",
-        "tooltip-format-wifi": "{essid}: {ipaddr}",
-        "tooltip-format-disconnected": "disconnected",
-        "tooltip-format-disabled": "disabled",
-        "on-click-right": "foot -e nmtui"
-    },
-    "clock": {
-        "format": "{:%A, %b %d, %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "margin-top": 5,
+  "margin-left": 5,
+  "margin-right": 5,
+  "reload_style_on_change": true,
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/sep",
+    "hyprland/window"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "custom/vpn",
+    "cpu",
+    "custom/sep",
+    "memory",
+    "custom/sep",
+    "battery",
+    "custom/sep",
+    "network",
+    "custom/sep",
+    "pulseaudio",
+    "custom/sep",
+    "clock"
+  ],
+  "hyprland/workspaces": {
+    "persistent-workspaces": {
+      "*": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
     }
+  },
+  "custom/vpn": {
+    "format": "vpn  |",
+    "tooltip-format": "{}",
+    "exec": "ps -C openconnect --no-headers -o cmd | grep -oP '(?<=--server=)[^ ]+' | head -n1",
+    "interval": 1,
+    "on-double-click": "sudo -A pkill openconnect"
+  },
+  "custom/sep": {
+    "format": "|"
+  },
+  "hyprland/window": {
+    "max-length": 50,
+    "ellipsis": "…"
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "max-volume": 150,
+    "format": "vol {volume}%",
+    "format-muted": "vol -{volume}%",
+    "format-bluetooth": "volbt {volume}%",
+    "nospacing": 1,
+    "on-click": "pulsemixer --toggle-mute",
+    "on-click-right": "foot -e pulsemixer",
+    "tooltip": false
+  },
+  "cpu": {
+    "format": "cpu {usage}%",
+    "interval": 5,
+    "states": {
+      "critical": 90
+    }
+  },
+  "memory": {
+    "format": "mem {percentage}%",
+    "interval": 5,
+    "states": {
+      "critical": 80
+    }
+  },
+  "battery": {
+    "format": "bat {capacity}%",
+    "format-charging": "bat ~{capacity}%",
+    "format-plugged": "bat +{capacity}%",
+    "format-critical": "bat !{capacity}%",
+    "interval": 5,
+    "states": {
+      "warning": 30,
+      "critical": 10
+    },
+    "tooltip": false
+  },
+  "network": {
+    "format-wifi": "wifi {bandwidthDownBits}",
+    "format-ethernet": "enth {bandwidthDownBits}",
+    "format-disconnected": "no network",
+    "interval": 5,
+    "tooltip": true,
+    "tooltip-format": "{ifname}: {ipaddr}",
+    "tooltip-format-wifi": "{essid}: {ipaddr}",
+    "tooltip-format-disconnected": "disconnected",
+    "tooltip-format-disabled": "disabled",
+    "on-click-right": "foot -e nmtui"
+  },
+  "clock": {
+    "format": "{:%A, %b %d, %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  }
 }

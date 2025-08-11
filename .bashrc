@@ -5,6 +5,22 @@
 [[ $- != *i* ]] && return
 
 
+vpn() {
+    CONF="$HOME/.vpnlist.conf"
+    PROFILE="$1"
+
+    server=$(awk -v p="[$PROFILE]" '$0==p {f=1; next} /^\[/ {f=0} f && /^server=/ {print substr($0,8)}' "$CONF")
+    user=$(awk -v p="[$PROFILE]" '$0==p {f=1; next} /^\[/ {f=0} f && /^user=/ {print substr($0,6)}' "$CONF")
+    servercert=$(awk -v p="[$PROFILE]" '$0==p {f=1; next} /^\[/ {f=0} f && /^servercert=/ {print substr($0,12)}' "$CONF")
+
+    if [ -z "$server" ]; then
+        echo "VPN not found!"
+        return 1
+    fi
+
+    sudo openconnect --server="$server" --user="$user" ${servercert:+--servercert "$servercert"} -b
+}
+
 alias c='clear'
 alias ..='cd ..'
 alias ...='cd ../..'
