@@ -48,7 +48,7 @@
         "max-volume": 150,
         "format": "vol {volume}%",
         "format-muted": "vol -{volume}%",
-        "format-bluetooth": "vol {volume}%",
+        "format-bluetooth": "volbt {volume}%",
         "nospacing": 1,
         "on-click": "pulsemixer --toggle-mute",
         "on-click-right": "foot -e pulsemixer",

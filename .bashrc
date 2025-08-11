@@ -4,11 +4,6 @@
 
 [[ $- != *i* ]] && return
 
-sleep() {
-  hyprlock &
-  sleep 1
-  systemctl suspend
-}
 
 alias c='clear'
 alias ..='cd ..'
@@ -30,7 +25,7 @@ alias y='yay'
 alias yupdate='yay -Syu'
 alias yclean='yay -Yc'
 # Hyprland
-alias config='nvim ~/.config/hypr/hyprland.conf'
+alias config='lf ~/.config/hypr'
 alias reload='hyprctl reload'
 
 alias ls='eza --icons'
@@ -39,7 +34,6 @@ alias grep='grep --color=auto'
 
 alias bye='sudo shutdown -h now'
 alias loop='sudo reboot'
-alias sleep='systemctl suspend'
 
 alias n="nvim"
 
@@ -48,9 +42,11 @@ export NVM_DIR="$HOME/.nvm"
 PS1='[\u@\h \W]\$ '
 
 # pnpm
-export PNPM_HOME="/home/o27/.local/share/pnpm"
+export PNPM_HOME="~/.local/share/pnpm"
 case ":$PATH:" in
 *":$PNPM_HOME:"*) ;;
 *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
